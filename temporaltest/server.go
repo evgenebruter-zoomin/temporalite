@@ -11,11 +11,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/DataDog/temporalite"
+
 	"go.temporal.io/api/enums/v1"
 	"go.temporal.io/sdk/client"
 	"go.temporal.io/sdk/worker"
 	"go.temporal.io/server/common/log"
+
+	"github.com/evgenebruter-zoomin/temporalite"
 )
 
 // A TestServer is a Temporal server listening on a system-chosen port on the

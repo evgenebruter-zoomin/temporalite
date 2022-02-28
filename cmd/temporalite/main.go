@@ -25,8 +25,8 @@ import (
 	// Load sqlite storage driver
 	_ "go.temporal.io/server/common/persistence/sql/sqlplugin/sqlite"
 
-	"github.com/DataDog/temporalite"
-	"github.com/DataDog/temporalite/internal/liteconfig"
+	"github.com/evgenebruter-zoomin/temporalite"
+	"github.com/evgenebruter-zoomin/temporalite/internal/liteconfig"
 )
 
 var (
@@ -34,17 +34,16 @@ var (
 )
 
 const (
-  searchAttrType = "search-attributes-type"
+	searchAttrType = "search-attributes-type"
 	searchAttrKey  = "search-attributes-key"
 	ephemeralFlag  = "ephemeral"
 	dbPathFlag     = "filename"
 	portFlag       = "port"
-	uiPortFlag    = "ui-port"
+	uiPortFlag     = "ui-port"
 	ipFlag         = "ip"
 	logFormatFlag  = "log-format"
 	namespaceFlag  = "namespace"
-	pragmaFlag    = "sqlite-pragma"
-
+	pragmaFlag     = "sqlite-pragma"
 )
 
 func init() {
