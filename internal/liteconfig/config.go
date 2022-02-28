@@ -12,6 +12,7 @@ import (
 	"sort"
 	"time"
 
+	"go.temporal.io/api/enums/v1"
 	"go.temporal.io/server/common/cluster"
 	"go.temporal.io/server/common/config"
 	"go.temporal.io/server/common/log"
@@ -54,6 +55,7 @@ type Config struct {
 	Logger           log.Logger
 	UpstreamOptions  []temporal.ServerOption
 	portProvider     *portProvider
+	SearchAttributes map[string]enums.IndexedValueType
 	FrontendIP       string
 	UIServer         UIServer
 }

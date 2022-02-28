@@ -69,6 +69,16 @@ func NewServer(opts ...ServerOption) (*Server, error) {
 		return nil, fmt.Errorf("error creating namespaces: %w", err)
 	}
 
+	if c.SearchAttributes != nil && len(c.SearchAttributes) > 0 {
+		helper, err := NewSearchAttributesHelper(sqlConfig)
+		if err != nil {
+			return nil, err
+		}
+		if err := helper.AddSearchAttributes(cfg.ClusterMetadata, c.SearchAttributes); err != nil {
+			return nil, fmt.Errorf("error setting up initial search attributes: %w", err)
+		}
+		defer func() { _ = helper.Close() }()
+	}
 	authorizer, err := authorization.GetAuthorizerFromConfig(&cfg.Global.Authorization)
 	if err != nil {
 		return nil, fmt.Errorf("unable to instantiate authorizer: %w", err)
